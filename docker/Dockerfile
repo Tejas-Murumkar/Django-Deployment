@@ -1,16 +1,20 @@
 FROM python:3.13
 
-ENV DockerHOME=/home/app/drf_api
+ENV APP_HOME=/home/app/web
 
-RUN	apt-get install -y git && \
-	 git clone https://github.com/Nipun-Chaudhari/django_learn.git
+# Install OS packages
+RUN apt-get update && apt-get install -y git
 
-WORKDIR  /django_learn/learn_models/
+# Clone Django project (if truly needed)
+RUN git clone https://github.com/Tejas-Murumkar/Django-Deployment.git
+WORKDIR Django-Deployment/django_learn/learn_models/
 
-RUN 	pip install django 
+# Install dependencies (replace this with requirements.txt ideally)
+RUN pip install django
 
-CMD 	["python3" ,"manage.py" ,"makemigrations"]
+# Expose port
+EXPOSE 8000
 
-CMD 	["python3" , "manage.py" ,"migrate"]
+# Start Django app
+CMD ["sh", "-c", "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"]
 
-CMD	["python3" , "manage.py" , "runserver" ]
