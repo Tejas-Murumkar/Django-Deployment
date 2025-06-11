@@ -13,4 +13,4 @@ CMD 	["python3" ,"manage.py" ,"makemigrations"]
 
 CMD 	["python3" , "manage.py" ,"migrate"]
 
-CMD	["pyhton3" , "manage.py" , "runserver" ]
+CMD	["python3" , "manage.py" , "runserver" ]
