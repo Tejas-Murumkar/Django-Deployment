@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My HTML5 Template</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f0f0;">
+      <a href="{% url 'film_list' %}" style="text-decoration: none;">
+      <button style="padding: 15px 30px; font-size: 1.5rem; color: white; background-color: #007BFF; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s, box-shadow 0.2s;">
+        Film Table
+      </button>
+      </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Table</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 style="text-align: center; color: #2c3e50; font-family: 'Arial', sans-serif; margin-bottom: 30px;">Film Table</h1>
+    <table style="width: 90%; margin: 20px auto; border-collapse: collapse; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <thead>
+            <tr style="background-color: #34495e; color: #ecf0f1; text-transform: uppercase; font-size: 14px;">
+                <th style="padding: 15px; border: 1px solid #ddd; text-align: left;">Films</th>
+                <th style="padding: 15px; border: 1px solid #ddd; text-align: left;">Release Year</th>
+                <th style="padding: 15px; border: 1px solid #ddd; text-align: left;">Collection (in Crores)</th>
+                <th style="padding: 15px; border: 1px solid #ddd; text-align: left;">Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for film in films %}
+            <tr style="background-color: {% cycle '#ecf0f1' '#bdc3c7' %}; transition: background-color 0.3s;">
+                <td style="padding: 15px; border: 1px solid #ddd;">{{ film.name }}</td>
+                <td style="padding: 15px; border: 1px solid #ddd;">{{ film.release_year }}</td>
+                <td style="padding: 15px; border: 1px solid #ddd;">{{ film.collection }}</td>
+                <td style="padding: 15px; border: 1px solid #ddd;">{{ film.rating }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{% url 'index' %}" style="text-decoration: none; background-color: #3498db; color: #fff; padding: 10px 20px; border-radius: 5px; font-size: 16px; transition: background-color 0.3s;">
+            Go Back
+        </a>
+    </div>
+
+</body>
+</html>
