@@ -1,15 +1,17 @@
 FROM python:3.13
 
 ENV APP_HOME=/home/app/web
+WORKDIR $APP_HOME
 
-# Install OS packages
-RUN apt-get update && apt-get install -y git
+# Install system dependencies
+RUN apt-get update
 
-# Clone Django project (if truly needed)
-RUN git clone https://github.com/Tejas-Murumkar/Django-Deployment.git
-WORKDIR Django-Deployment/django_learn/learn_models/
+# Copy project files
+COPY learn_models/ ./learn_models/
 
-# Install dependencies (replace this with requirements.txt ideally)
+WORKDIR /learn_models/
+
+# Install Python dependencies
 RUN pip install django
 
 # Expose port
